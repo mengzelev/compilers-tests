@@ -27,11 +27,14 @@ else ## parse failed
     exit 1;
   else
     ## check if your output ends with "."
-    if ! [ ${FL2: -1} == '.' ]
+    if ! ( [ ${FL2: -1} == '.' ] || [ ${FL2: -1} == '!' ] )
     then
       echo -e "${RED}${BOLD}Error: your output should end with \".\"${NC}${NORMAL}"
       exit 1
     fi
+    wc -l $1
+    wc -l $2
+    ##sleep 0.1
     exit 0;
   fi
 fi
